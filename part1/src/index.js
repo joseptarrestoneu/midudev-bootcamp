@@ -3,24 +3,36 @@ import ReactDOM from 'react-dom'
 import Title from './Header'
 import Content from './Content'
 import Totals from './Total'
+import App2 from './App2'
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
-  const total = exercises1 + exercises2 + exercises3;
+
+  const course = {
+  name: 'Half Stack application development',
+  parts: [
+    {
+      name: 'Fundamentals of React',
+      exercises: 10,
+    },
+    {
+      name: 'Using props to pass data',
+      exercises: 7,
+    },
+    {
+      name: 'State of a component',
+      exercises: 14,
+    }
+  ]
+}
+  const total = course.parts.map((elements) => elements.exercises);
+  const sum = total.reduce((a, b) => a + b);
 
   return (
     <div>
-      <Title course={course} />
-      <Content part={part1} exercises={exercises1} />
-      <Content part={part2} exercises={exercises2} />
-      <Content part={part3} exercises={exercises3} />
-      <Totals total={total}/>
+      <Title course={course.name} />
+      <Content part={course.parts} />
+      <Totals total={sum}/>
+      <App2 />
     </div>
   )
 }
