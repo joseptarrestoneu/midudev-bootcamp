@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Title from './Header'
-import Content from './Content'
-import Totals from './Total'
-import App2 from './App2'
+import Title from './Components/Header'
+import Content from './Components/Content'
+import Totals from './Components/Total'
+import Contador from './Components/Contador'
 
 const App = () => {
 
@@ -29,10 +29,10 @@ const App = () => {
 
   return (
     <div>
-      <Title course={course.name} />
+      {/* <Title course={course.name} />
       <Content part={course.parts} />
-      <Totals total={sum}/>
-      <App2 />
+      <Totals total={sum}/> */}
+      <Contador />
     </div>
   )
 }
