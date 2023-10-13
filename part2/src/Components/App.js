@@ -50,9 +50,9 @@ function App() {
  
   return (
     <>
-      {course.map((element) => {
-        return <Course key={element.id} course={element} />
-      })}
+      {course.map((element) => (
+        <Course key={element.id} course={element} />
+      ))}
     </>
   )
   
