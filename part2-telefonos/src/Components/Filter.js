@@ -1,9 +1,9 @@
 
-const Filter = (filter) => {
+const Filter = ({filter, change}) => {
    
   return (
     <div>
-        filter show with: <input type='text' id='filter' onChange={filter.change} value={filter.filter}></input>
+        filter show with: <input type='text' id='filter' onChange={change} value={filter}></input>
     </div>
 )
 }
