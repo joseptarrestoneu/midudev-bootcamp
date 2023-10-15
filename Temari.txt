@@ -6,8 +6,9 @@ Video 3 Midudev     [x]
 Part 1 - Teoria     [x]
 Part 1 - Exercicis  [x]
 Video 4 Midudev     [x]
-Part 2 - Teoria     [ ]
-Part 2 - Exercicis  [ ]
+Video 5 Midudev     [ ] En curs - Minut 24
+Part 2 - Teoria     [ ] En curs - c. Obteniendo datos del servidor
+Part 2 - Exercicis  [ ] En curs - c. Obteniendo datos del servidor - Ejercicios 2.11 a 2.14
 Video 6 Midudev     [ ]
 Video 7 Midudev     [ ]
 Video 8 Midudev     [ ]
