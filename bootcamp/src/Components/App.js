@@ -1,30 +1,20 @@
 import { useEffect, useState } from 'react';
-// import axios from 'axios';
 import './App.css';
 import Note from './Note';
+import getAllNotes from '../services/notes/getAllNotes';
+import createNote from '../services/notes/createNote';
 
 function App(props) {
 
   const [notes, setNotes] = useState([]);
   const [newNote, setNewNote] = useState("");
 
-  // Opcio Fetch
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then((json) => {
-        setNotes(json)
-      });
+    getAllNotes()
+      .then(notes => {
+        setNotes(notes)
+      })
   }, [])
-
-  // // Opcio Axios (cal importar "npm install axios")
-  // useEffect(() => {
-  //   axios.get('https://jsonplaceholder.typicode.com/posts')
-  //     .then(response => {
-  //       const {data} = response
-  //       setNotes(data)
-  //     });
-  // }, [])
 
   const handleChange = (event) => {
     setNewNote(event.target.value);
@@ -33,11 +23,20 @@ function App(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const noteToAddToState = {
-      id: notes.length + 1,
       title: newNote,
       body: newNote,
+      userId: 1
     }
-    setNotes([...notes, noteToAddToState])
+
+    // Hacemos de forma optimista para ir mas rapido
+    // Atención para introducir el id si te viene de la BBDD
+    setNotes([...notes, noteToAddToState]);
+
+    createNote(noteToAddToState)
+      .then(newNotes => {
+        setNotes([...notes, newNotes]);
+      })
+
     setNewNote('');
   }
 
