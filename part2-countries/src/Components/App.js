@@ -19,7 +19,7 @@ function App() {
         setCountries(json)
       })
   }, [])
-  
+
   const handleChangeFilter = (event) => {
     setFilter(event.target.value.toLowerCase());
   }
