@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css';
 import ListNames2 from './ListNames2';
 import Filter from './Filter';
 import PersonForm from './PersonsForm';
+import Notification from './Notification';
 
 function App() {
 
@@ -15,6 +16,14 @@ function App() {
   const [ newName, setNewName ] = useState('');
   const [ newPhone, setNewPhone ] = useState('');
   const [ filter, setFilter ] = useState('');
+  const [ newMessage, setNewMessage ] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setNewMessage('')
+    }, 3000);
+    return () => clearTimeout(timer);
+  },[newMessage])
 
   const handleChangeFilter = (event) => {
     setFilter(event.target.value.toLowerCase());
@@ -34,19 +43,31 @@ function App() {
     if (persons.map(element => element.name).includes(newName)) {
       alert(`${newName} is already added to phonebook`)
     } else {
-      const data = { 
-        name: newName,
-        number: newPhone, 
-      }
-      setPersons([...persons, data]);  
-    }  
+        let data;
+        data = { 
+          name: newName,
+          number: newPhone, 
+        }
+        setPersons([...persons, data]);  
+        setNewMessage(data.name)
+    }
     setNewName('');
     setNewPhone('');
+  }
+
+  const handelClick = (event) => {
+    event.preventDefault();
+    let filterPersons;
+    if (window.confirm("Do you really want to detete?")) {
+      filterPersons = persons.filter(name => name.name !== event.target.value );
+      setPersons(filterPersons)
+    }
   }
 
   return (
     <div>
       <h2>Phonebook</h2>
+      <Notification message={newMessage}/>
       <Filter filter={filter} change={handleChangeFilter}/>
       <PersonForm persons={persons} submit={handleSubmit} change={handleChange} newName={newName} newPhone={newPhone}/>
       <h2>Number</h2>
@@ -56,7 +77,7 @@ function App() {
             return element.name.toLowerCase().includes(filter);
           })
           .map((element) => (
-            <ListNames2 key={element.name} persons={element}/>
+            <ListNames2 key={element.name} persons={element} handelClick={handelClick}/>
           ))    
         }
     </div>  
