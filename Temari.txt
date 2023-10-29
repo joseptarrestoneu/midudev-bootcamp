@@ -7,9 +7,11 @@ Part 1 - Teoria     [x]
 Part 1 - Exercicis  [x]
 Video 4 Midudev     [x]
 Video 5 Midudev     [x]
-Part 2 - Teoria     [ ] En curs - d. Alterando datos en el servidor
-Part 2 - Exercicis  [ ] En curs - d. Alterando datos en el servidor - Ejercicios 2.15 a 2.18
-Video 6 Midudev     [ ]
+Part 2 - Teoria     [x]
+Part 2 - Exercicis  [x]
+Video 6 Midudev     [ ] En curs - 30'25"
+Part 2 - Teoria     [ ] En curs - a. Node.js y Express
+Part 2 - Exercicis  [ ] En curs - a. Node.js y Express - Ejercicios 3.1 a 3.6
 Video 7 Midudev     [ ]
 Video 8 Midudev     [ ]
 Video 9 Midudev     [ ]
